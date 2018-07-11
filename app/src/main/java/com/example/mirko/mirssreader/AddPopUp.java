@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.mirko.mirssreader.Model.ListObject;
+
 public class AddPopUp extends Activity {
 
     @Override
@@ -33,9 +35,11 @@ public class AddPopUp extends Activity {
             public void onClick(View v) {
                 //if(URLUtil.isValidUrl(linktext.getText().toString()))
                 //{
-                    MainActivity.RSS_Name_List.add(nameText.getText().toString());
-                    MainActivity.RSS_Link_List.add(linkText.getText().toString());
-                    finish();
+                ListObject object = new ListObject();
+                object.link = linkText.getText().toString();
+                object.name = nameText.getText().toString();
+                MainActivity.Link_List.add(object);
+                finish();
                 //}
             }
         });

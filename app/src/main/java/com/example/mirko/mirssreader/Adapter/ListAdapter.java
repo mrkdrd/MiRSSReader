@@ -2,7 +2,6 @@ package com.example.mirko.mirssreader.Adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,16 +60,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListViewHolder>{
     @Override
     public void onBindViewHolder(ListViewHolder holder, int position) {
 
-        holder.txtTitle.setText(MainActivity.RSS_Name_List.get(position));
+        holder.txtTitle.setText(MainActivity.Link_List.get(position).name);
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
             public void onClick(View view, int position, boolean isLongClick) {
                 if(!isLongClick)
                 {
-                    //TODO
-                    Log.d("test", "onClick: sucks");
-                    MainActivity.load(recyclerView, MainActivity.RSS_Link_List.get(position),mContext);
+                    MainActivity.load(recyclerView, MainActivity.Link_List.get(position).link,mContext);
                 }
             }
         });
@@ -78,6 +75,6 @@ public class ListAdapter extends RecyclerView.Adapter<ListViewHolder>{
 
     @Override
     public int getItemCount() {
-        return MainActivity.RSS_Name_List.size();
+        return MainActivity.Link_List.size();
     }
 }

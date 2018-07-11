@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.mirko.mirssreader.Adapter.ListAdapter;
+import com.example.mirko.mirssreader.Model.ListObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static Context baseContext;
 
-    public static List<String> RSS_Name_List = new ArrayList<String>();
-    public static List<String> RSS_Link_List = new ArrayList<String>();
+    public static List<ListObject> Link_List = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
