@@ -3,7 +3,6 @@ package com.example.mirko.mirssreader;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,7 +25,7 @@ public class AddPopUp extends Activity {
         fetchLink();
     }
     private void fetchLink(){
-        final EditText linktext = (EditText) findViewById(R.id.link_text);
+        final EditText linkText = (EditText) findViewById(R.id.link_text);
         final EditText nameText = (EditText) findViewById(R.id.name_text);
 
         Button button= (Button) findViewById(R.id.add_button);
@@ -34,11 +33,8 @@ public class AddPopUp extends Activity {
             public void onClick(View v) {
                 //if(URLUtil.isValidUrl(linktext.getText().toString()))
                 //{
-                    MainActivity.RSS_link = linktext.getText().toString();
-                    Log.d("link text: ", linktext.getText().toString());
                     MainActivity.RSS_Name_List.add(nameText.getText().toString());
-                    Log.d("tostring", MainActivity.RSS_Name_List.toString());
-                    MainActivity.RSS_Link_List.add(linktext.getText().toString());
+                    MainActivity.RSS_Link_List.add(linkText.getText().toString());
                     finish();
                 //}
             }
