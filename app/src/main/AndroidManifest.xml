@@ -18,8 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddPopUp" ></activity>
-        <activity android:name=".FeedActivity"></activity>
+        <activity
+            android:name=".AddPopUp"
+            android:theme="@style/AppTheme.CustomTheme" />
     </application>
 
 </manifest>

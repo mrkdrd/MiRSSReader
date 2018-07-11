@@ -56,14 +56,6 @@ public class MainActivity extends AppCompatActivity {
         RssLoader loader = new RssLoader(recyclerView, RSS_link, baseContext);
         loader.loadRSS();
     }
-    public void saveData(){
-        SharedPreferences sharedPrefs = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPrefs.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(Link_List);
-        editor.putString("Link List", json);
-        editor.apply();
-    }
 
     public void loadData(){
         SharedPreferences sharedPrefs = getSharedPreferences("sharedPrefs", MODE_PRIVATE);

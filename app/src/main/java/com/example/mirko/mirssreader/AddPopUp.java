@@ -45,6 +45,7 @@ public class AddPopUp extends Activity {
                 MainActivity.Link_List.add(object);
 
                 saveData();
+                MainActivity.loadList();
                 finish();
                 }
                 else{
