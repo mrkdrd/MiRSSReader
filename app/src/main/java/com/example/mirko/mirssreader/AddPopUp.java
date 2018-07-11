@@ -1,13 +1,16 @@
 package com.example.mirko.mirssreader;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.mirko.mirssreader.Model.ListObject;
+import com.google.gson.Gson;
 
 public class AddPopUp extends Activity {
 
@@ -33,14 +36,22 @@ public class AddPopUp extends Activity {
         Button button= (Button) findViewById(R.id.add_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //if(URLUtil.isValidUrl(linktext.getText().toString()))
-                //{
+                if(URLUtil.isValidUrl(linkText.getText().toString()))
+                {
                 ListObject object = new ListObject();
                 object.link = linkText.getText().toString();
                 object.name = nameText.getText().toString();
                 MainActivity.Link_List.add(object);
+
+                SharedPreferences sharedPrefs = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPrefs.edit();
+                Gson gson = new Gson();
+                String json = gson.toJson(MainActivity.Link_List);
+                editor.putString("Link List", json);
+                editor.apply();
+
                 finish();
-                //}
+                }
             }
         });
     }
