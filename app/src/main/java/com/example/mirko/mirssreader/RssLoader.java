@@ -37,7 +37,6 @@ public class RssLoader {
             @Override
             protected void onPostExecute(String s) {
                 rssObject = new Gson().fromJson(s,RssObject.class);
-
                 FeedAdapter adapter = new FeedAdapter(rssObject, context);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
