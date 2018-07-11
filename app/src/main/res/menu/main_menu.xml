@@ -7,13 +7,6 @@
         android:icon="@drawable/ic_refresh"
         app:showAsAction="always"
         android:title="Refresh"/>
-
-    <item
-        android:id="@+id/menu_update_intervall"
-        android:icon="@drawable/ic_update_intervall"
-        app:showAsAction="ifRoom"
-        android:title="UpdateIntervall"/>
-
     <item
         android:id="@+id/menu_add"
         android:icon="@drawable/ic_add"

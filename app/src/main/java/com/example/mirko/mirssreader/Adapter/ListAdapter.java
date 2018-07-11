@@ -64,10 +64,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListViewHolder>{
 
         holder.setItemClickListener(new ItemClickListener() {
             @Override
-            public void onClick(View view, int position, boolean isLongClick) {
+            public void onClick(View view, final int position, boolean isLongClick) {
                 if(!isLongClick)
                 {
                     MainActivity.load(recyclerView, MainActivity.Link_List.get(position).link,mContext);
+                }
+                if(isLongClick)
+                {
+                    MainActivity.Link_List.remove(position);
+                    MainActivity.loadList();
                 }
             }
         });

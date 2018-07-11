@@ -23,8 +23,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    RecyclerView recyclerView;
-    RecyclerView listRecyclerView;
+    static RecyclerView recyclerView;
+    static RecyclerView listRecyclerView;
 
     public static Context baseContext;
 
@@ -90,8 +90,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(MainActivity.this, AddPopUp.class ));
         return true;
     }
-
-    private void loadList(){
+    public static void loadList(){
         ListAdapter adapter = new ListAdapter(recyclerView, baseContext);
         listRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();

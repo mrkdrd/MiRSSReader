@@ -2,6 +2,7 @@ package com.example.mirko.mirssreader;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -36,23 +37,29 @@ public class AddPopUp extends Activity {
         Button button= (Button) findViewById(R.id.add_button);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if(URLUtil.isValidUrl(linkText.getText().toString()))
+               if(URLUtil.isValidUrl(linkText.getText().toString()))
                 {
                 ListObject object = new ListObject();
                 object.link = linkText.getText().toString();
                 object.name = nameText.getText().toString();
                 MainActivity.Link_List.add(object);
 
-                SharedPreferences sharedPrefs = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPrefs.edit();
-                Gson gson = new Gson();
-                String json = gson.toJson(MainActivity.Link_List);
-                editor.putString("Link List", json);
-                editor.apply();
-
+                saveData();
                 finish();
                 }
+                else{
+                   linkText.setTextColor(Color.RED);
+                   linkText.setText("---Invalid Link---");
+               }
             }
         });
+    }
+    private void saveData(){
+        SharedPreferences sharedPrefs = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(MainActivity.Link_List);
+        editor.putString("Link List", json);
+        editor.apply();
     }
 }
