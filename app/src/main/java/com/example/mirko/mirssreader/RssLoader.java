@@ -30,7 +30,7 @@ public class RssLoader {
             protected String doInBackground(String... params) {
                 String result;
                 DataHandler http = new DataHandler();
-                result = http.GetData(params[0]);
+                result = http.getData(params[0]);
                 return  result;
             }
 
