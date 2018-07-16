@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     static RecyclerView listRecyclerView;
 
     public static Context baseContext;
-
     public static List<ListObject> Link_List = new ArrayList<>();
 
     @Override
@@ -86,5 +85,8 @@ public class MainActivity extends AppCompatActivity {
         ListAdapter adapter = new ListAdapter(recyclerView, baseContext);
         listRecyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        if(Link_List.isEmpty()) {
+            recyclerView.setAdapter(null);
+        }
     }
 }
