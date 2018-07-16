@@ -12,7 +12,7 @@ import java.net.URL;
 public class DataHandler {
     static String stream = null;
 
-    public String GetData(String urlString)
+    public String getData(String urlString)
     {
         try{
             URL url = new URL(urlString);
